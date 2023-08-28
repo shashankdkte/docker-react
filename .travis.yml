@@ -1,0 +1,9 @@
+sudo:required
+services:
+  - docker
+
+before_install:
+  - docker build -t shashank2712docker/docker-react -f Dockerfile.dev .    
+
+script:
+  - docker run -e CI=true  shashank2712docker/docker-react npm run test -- --coverage
